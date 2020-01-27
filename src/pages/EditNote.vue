@@ -1,6 +1,5 @@
 <template>
   <q-page :key="note._id">
-    <h1>NOTE {{ $route.params.id }}</h1>
     <q-input v-model="note.title" type="text" label="Note Title" />
     <VueEditor v-model="note.content" useMarkdownShortcuts />
     <q-page-sticky position="bottom-right" :offset="[18, 18]">
