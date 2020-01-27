@@ -22,7 +22,7 @@ export default function(/* { ssrContext } */) {
 
       async saveNote({ commit }, payload) {
         console.log("FROM saveNote");
-        commit("saveNoteMutation", await getNotes());
+        // commit("saveNoteMutation", await getNotes());
       }
     },
     mutations: {

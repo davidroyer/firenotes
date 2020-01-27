@@ -53,6 +53,20 @@
             <q-item-label>Settings</q-item-label>
           </q-item-section>
         </q-item>
+
+        <q-item
+          v-for="note in this.$store.state.notes"
+          :key="note._id"
+          exact
+          :to="`/edit-note/${note._id}`"
+        >
+          <q-item-section avatar>
+            <q-icon name="settings" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label v-text="note.title" />
+          </q-item-section>
+        </q-item>
       </q-list>
       <pre>{{ this.$store.state.notes }}</pre>
     </q-drawer>
@@ -72,9 +86,18 @@ export default {
       leftDrawerOpen: false
     };
   },
-  computed() {},
-  created() {
+  async created() {
+    const testGet = await this.$getNotes();
+    // eslint-disable-next-line no-console
+    console.log("TCL: created -> testGet", testGet);
     this.$store.dispatch("loadNotes");
+  },
+
+  methods: {
+    logNote(note) {
+      // eslint-disable-next-line no-console
+      console.log("note", note);
+    }
   }
 };
 </script>
