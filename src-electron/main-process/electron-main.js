@@ -1,4 +1,9 @@
-import { app, BrowserWindow, nativeTheme } from "electron";
+/* eslint-disable no-console */
+import { app, nativeTheme } from "electron";
+import createAuthWindow from "../../services/auth-process";
+import createAppWindow from "../../services/app-process";
+import authService from "../../services/auth-service";
+// console.log("TCL: createAppWindow -> process.env.APP_URL", process.env.APP_URL);
 
 try {
   if (
@@ -23,29 +28,13 @@ if (process.env.PROD) {
 
 let mainWindow;
 
-function createWindow() {
-  /**
-   * Initial window options
-   */
-  mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 600,
-    useContentSize: true,
-    webPreferences: {
-      // Change from /quasar.conf.js > electron > nodeIntegration;
-      // More info: https://quasar.dev/quasar-cli/developing-electron-apps/node-integration
-      nodeIntegration: QUASAR_NODE_INTEGRATION
-
-      // More info: /quasar-cli/developing-electron-apps/electron-preload-script
-      // preload: path.resolve(__dirname, 'electron-preload.js')
-    }
-  });
-
-  mainWindow.loadURL(process.env.APP_URL);
-
-  mainWindow.on("closed", () => {
-    mainWindow = null;
-  });
+async function createWindow() {
+  try {
+    await authService.refreshTokens();
+    mainWindow = createAppWindow();
+  } catch (err) {
+    createAuthWindow();
+  }
 }
 
 app.on("ready", createWindow);

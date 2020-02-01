@@ -12,10 +12,13 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          QTron
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div class="mr-2" v-text="profile.name" />
+        <q-avatar>
+          <img :src="profile.picture" />
+        </q-avatar>
       </q-toolbar>
     </q-header>
 
@@ -83,10 +86,13 @@ export default {
 
   data() {
     return {
+      profile: {},
       leftDrawerOpen: false
     };
   },
   async created() {
+    this.profile = this.$q.electron.remote.getGlobal("profile");
+
     const testGet = await this.$getNotes();
     // eslint-disable-next-line no-console
     console.log("TCL: created -> testGet", testGet);

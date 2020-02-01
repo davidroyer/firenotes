@@ -94,9 +94,10 @@ module.exports = function(ctx) {
       workboxPluginMode: "GenerateSW", // 'GenerateSW' or 'InjectManifest'
       workboxOptions: {}, // only for GenerateSW
       manifest: {
-        name: "QElectron2020 App",
-        short_name: "QElectron2020 App",
-        description: "Testing building for Windows on Catalina",
+        name: "QTron App",
+        short_name: "QTron App",
+        description:
+          "An app for Windows, Mac, and IOS built by Quasar and Electron",
         display: "standalone",
         orientation: "portrait",
         background_color: "#ffffff",
@@ -162,7 +163,7 @@ module.exports = function(ctx) {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: "qelectron2020"
+        appId: "qtron"
       },
 
       // More info: https://quasar.dev/quasar-cli/developing-electron-apps/node-integration

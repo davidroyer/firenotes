@@ -1,8 +1,8 @@
 {
-  "name": "qelectron2020",
+  "name": "qtron",
   "version": "0.0.1",
   "description": "Testing building for Windows on Catalina",
-  "productName": "QElectron2020 App",
+  "productName": "QTron App",
   "cordovaId": "org.cordova.quasar.app",
   "capacitorId": "",
   "author": "David Royer <droyer01@gmail.com>",
@@ -12,13 +12,17 @@
     "test": "echo \"No test specified\" && exit 0",
     "dev:app": "quasar dev -m electron",
     "build:app": "quasar build -m electron --target all",
-    "builder:app": "quasar build -m electron -mw"
+    "builder:app": "quasar build -m electron -mw",
+    "rebuild": "./node_modules/.bin/electron-rebuild"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
+    "jwt-decode": "^2.2.0",
+    "keytar": "^5.1.0",
     "nedb": "^1.8.0",
     "nedb-promises": "^4.0.1",
     "quasar": "^1.0.0",
+    "request": "^2.88.0",
     "vue2-editor": "^2.10.2"
   },
   "devDependencies": {
@@ -31,6 +35,7 @@
     "electron-debug": "^3.0.0",
     "electron-devtools-installer": "^2.2.4",
     "electron-packager": "^14.1.1",
+    "electron-rebuild": "^1.10.0",
     "eslint": "^5.10.0",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-vue": "^5.0.0"
