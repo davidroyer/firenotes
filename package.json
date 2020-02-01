@@ -10,6 +10,7 @@
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
     "test": "echo \"No test specified\" && exit 0",
+    "dev": "quasar dev -m electron",
     "dev:app": "quasar dev -m electron",
     "build:app": "quasar build -m electron --target all",
     "builder:app": "quasar build -m electron -mw",

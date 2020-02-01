@@ -8,6 +8,10 @@ const routes = [
       // { path: "/edit-note", component: () => import("pages/EditNote.vue") }
       { path: "edit-note/:id", component: () => import("pages/EditNote.vue") }
     ]
+  },
+  {
+    path: "*",
+    redirect: "/"
   }
 ];
 

@@ -1,4 +1,5 @@
-import { BrowserWindow } from "electron";
+/* eslint-disable no-console */
+import { BrowserWindow, protocol } from "electron";
 import authService from "./auth-service";
 import createAppWindow from "./app-process";
 
@@ -19,18 +20,30 @@ function createAuthWindow() {
   win.loadURL(authService.getAuthenticationURL());
 
   const {
+    // eslint-disable-next-line no-unused-vars
     session: { webRequest }
   } = win.webContents;
 
-  const filter = {
-    urls: ["file:///callback*"]
-  };
+  protocol.interceptBufferProtocol("file", async ({ url }) => {
+    console.log("interceptBufferProtocol -> url", url);
 
-  webRequest.onBeforeRequest(filter, async ({ url }) => {
-    await authService.loadTokens(url);
-    createAppWindow();
-    return destroyAuthWin();
+    if (url.includes("file:///callback?code")) {
+      console.log("INSIDE CALLBACK CHECK");
+
+      await authService.loadTokens(url);
+      createAppWindow();
+      return destroyAuthWin();
+    }
   });
+  // const filter = {
+  //   urls: ["file:///callback*"]
+  // };
+
+  // webRequest.onBeforeRequest(filter, async ({ url }) => {
+  //   await authService.loadTokens(url);
+  //   createAppWindow();
+  //   return destroyAuthWin();
+  // });
 
   win.on("authenticated", () => {
     destroyAuthWin();

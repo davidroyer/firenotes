@@ -10,7 +10,7 @@ const { apiIdentifier, auth0Domain, clientId } = envVariables;
 
 const redirectUri = `file:///callback`;
 
-const keytarService = "my-todo-app";
+const keytarService = "qtron-app";
 const keytarAccount = os.userInfo().username;
 
 let accessToken = null;
