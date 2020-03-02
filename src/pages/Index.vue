@@ -1,7 +1,13 @@
 <template>
   <q-page class="flex flex-center">
-    <h2 class="header q-header--bordered">QTron App</h2>
-    <img alt="Quasar logo" src="~assets/quasar-logo-full.svg" />
+    <h2 class="header q-header--bordered">
+      QTron App - Chrome User Agent - webRequest.onBeforeRequest
+    </h2>
+    <img
+      alt="Quasar logo"
+      class="something"
+      src="~assets/quasar-logo-full.svg"
+    />
     <q-btn color="primary" label="Logout" @click="logout" />
   </q-page>
 </template>

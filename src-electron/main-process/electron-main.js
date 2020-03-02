@@ -37,6 +37,15 @@ async function createWindow() {
   }
 }
 
+console.log("BEFORE REPLACE -> app.userAgentFallback", app.userAgentFallback);
+
+// app.userAgentFallback = app.userAgentFallback.replace(
+//   "Electron/" + process.versions.electron,
+//   ""
+// );
+
+console.log("AFTER REPLACE -> app.userAgentFallback", app.userAgentFallback);
+
 app.on("ready", createWindow);
 
 app.on("window-all-closed", () => {

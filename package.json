@@ -12,6 +12,8 @@
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev -m electron",
     "dev:app": "quasar dev -m electron",
+    "dev:ios": "quasar dev -m cordova -T ios",
+    "build:mac": "quasar build -m electron",
     "build:app": "quasar build -m electron --target all",
     "builder:app": "quasar build -m electron -mw",
     "rebuild": "./node_modules/.bin/electron-rebuild"

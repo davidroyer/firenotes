@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <q-input v-model="note.title" type="text" label="Note Title" />
-    <VueEditor v-model="note.content" useMarkdownShortcuts />
+    <VueEditor v-model="note.content" use-markdown-shortcuts />
     <q-page-sticky position="bottom-right" :offset="[18, 18]">
       <q-btn fab icon="save" color="primary" @click="save" />
     </q-page-sticky>

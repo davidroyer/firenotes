@@ -12,8 +12,8 @@ function createAppWindow() {
     useContentSize: true,
     webPreferences: {
       nodeIntegration: true,
-      nodeIntegrationInWorker: true,
-      webSecurity: false
+      nodeIntegrationInWorker: true
+      // webSecurity: false
 
       // More info: /quasar-cli/developing-electron-apps/electron-preload-script
       // preload: path.resolve(__dirname, 'electron-preload.js')

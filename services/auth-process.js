@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+// eslint-disable-next-line no-unused-vars
 import { BrowserWindow, protocol } from "electron";
 import authService from "./auth-service";
 import createAppWindow from "./app-process";
@@ -13,11 +14,13 @@ function createAuthWindow() {
     width: 1000,
     height: 600,
     webPreferences: {
-      nodeIntegration: false
+      nodeIntegration: true
     }
   });
 
-  win.loadURL(authService.getAuthenticationURL());
+  win.loadURL(authService.getAuthenticationURL(), {
+    userAgent: "Chrome"
+  });
 
   const {
     // eslint-disable-next-line no-unused-vars
